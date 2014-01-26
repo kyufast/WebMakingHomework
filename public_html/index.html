@@ -6,11 +6,67 @@ and open the template in the editor.
 -->
 <html>
   <head>
+    <script type="text/javascript">
+      var b = new Array(20);
+      var CNT;
+      var x1 = new Array(4);
+      var y1 = new Array(4);
+      var x, y;
+      var speed;
+
+      window.onload = function() {
+        var i;
+        var CVS = document.getElementById('id_CVS');
+        CNT = CVT.getContent('2d');
+
+        for (i = 0; i < 20; i++) {
+          b[i] = new Array(12);
+        }
+        clearblock();
+        newpiece();
+
+        window.addEventListener('kedown', keydownfunc, true);
+        speed = 1000;
+        timerfunc();
+      }
+
+      var clearblock = function() {
+        var i, j;
+
+        for (i = 0; i < 20; i++) {
+          for (j = 0; j < 12; j++) {
+            if ((j == 0) || (j == 11) || (i == 19)) {
+              b[i][j] = 1;
+            } else {
+              b[i][j] = 0;
+            }
+          }
+        }
+      }
+
+      var newpiece = function(r) {
+        var i, num, t;
+
+        var block = [
+          [[0, -1], [0, 0], [0, 1], [0, 2]], /*A*/
+          [[0, -1], [0, 0], [1, 0], [-1, 0]], /*B*/
+          [[0, -1], [0, 0], [1, 0], [1, -1]], /*C*/
+          [[0, -1], [0, 0], [-1, 0], [1, -1]], /*D*/
+          [[0, -1], [0, 0], [1, 0], [-1, -1]], /*E*/
+          [[0, -1], [0, 0], [0, 1], [-1, 1]], /*F*/
+          [[0, -1], [0, 0], [0, 1], [1, 1]]/*G*/
+        ];
+        
+      }
+      
+
+
+    </script>
     <title>TODO supply a title</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
   </head>
   <body>
-    <div>TODO write content</div>
+    <canvas id="id_CVS" width="320" height="320"></canvas>
   </body>
 </html>
